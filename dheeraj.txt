@@ -1,33 +1,46 @@
-#include<iostream>
+ #include<iostream>
 using namespace std;
-struct emp
+class A
 {
-	int id;
-	char dept;
-	float sal;
-	void assign();
-	void display();
+	int x;
+	int y;
+public:
+	A()
+	{
+		x=10;
+		y=20;
+	}
+	A operator+(A tobj1)
+	{
+		A tobj2;
+		tobj2.x=tobj1.x+x;
+		tobj2.y=tobj1.y+y;
+		return tobj2;
+	}
+		A operator-(A tobj3)
+	{
+		A tobj2;
+		this->x=tobj3.x-x;
+		this->y=tobj3.y-y;
+		return tobj2;
+	}
+	void display()
+	{
+		cout<<x<< " " <<y<<endl;
+	}
 };
- emp D;//GLOBAL VARAIBLE OF TYPE EMP
-void emp::assign()
+
+void main()
 {
-	id=10;
-	dept='a';
-	sal=1111223.00f;
-}
-void emp::display()
-{
-	cout<<id<<dept<<sal<<endl;
-}
-int main()
-{
-	emp E;
-	E.assign();
-	E.display();
-	D.id=20;
-	D.dept='L';
-	D.sal=5555.66F;
-	cout<<D.id<<D.dept<<D.sal<<endl;
-	return 0;
+	A obj1;
+	A obj2;
+	A obj3=obj1+obj2;
+	obj1.display();
+	obj2.display();
+	obj3.display();
+	obj1 - obj2;
+	obj1.display();
+
+	//obj4.display();
 
 }
